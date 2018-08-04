@@ -141,9 +141,9 @@ public class Meowloween {
 
     // same wall as chris' room door
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-            new LXVector(southWallX, southWallY + 15, -129 + 115),
-            TRIANGLE_SIDE_LENGTH, DEG_180+DEG_60,
-            loftWindowRight, loftMirrorRight,
+            new LXVector(southWallX+6, southWallY + 15, -129 + 136),
+            TRIANGLE_SIDE_LENGTH, DEG_180+DEG_120,
+            negativeYUnitVector, loftMirrorRight,
             BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
             0, 2, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
             DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 7
