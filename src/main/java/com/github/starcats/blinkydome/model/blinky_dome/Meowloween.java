@@ -26,6 +26,7 @@ public class Meowloween {
     WEST_WALL_CLUSTER(0),
     SOUTH_WALL_RIGHT_CLUSTER(1),
     SOUTH_WALL_LEFT_CLUSTER(2),
+    TETRA_DJ(3),
     ;
 
     private final int domeGroup;
@@ -164,7 +165,6 @@ public class Meowloween {
     triangles.addAll(getHazardSignShape(new LXVector(southWallX, southWallY, -19),
         new LXVector(-1, 0, 0), DomeGroup.SOUTH_WALL_RIGHT_CLUSTER, 1, 1));
 
-    /*
     triangles.add(BlinkyTriangle.positionIn3DSpace(
         new LXVector(southWallX, southWallY, -19),
         TRIANGLE_SIDE_LENGTH, 0,
@@ -205,10 +205,122 @@ public class Meowloween {
         0, 1, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
         DomeGroup.SOUTH_WALL_RIGHT_CLUSTER.getDomeGroup(), 3
     ));
-    */
+
+    // Facing east
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(southWallX, southWallY, -129),
+        TRIANGLE_SIDE_LENGTH, 0,
+        negativeYUnitVector, southWallLeft,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 1, 0 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        DomeGroup.TETRA_DJ.getDomeGroup(), 0
+    ));
+
+    // Facing Chris Room
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(southWallX, southWallY, -129),
+        TRIANGLE_SIDE_LENGTH, 0,
+        negativeYUnitVector, southWallLeft,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 1, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        DomeGroup.TETRA_DJ.getDomeGroup(), 1
+    ));
+
+    // Facing north
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(southWallX, southWallY, -129),
+        TRIANGLE_SIDE_LENGTH, 0,
+        negativeYUnitVector, southWallLeft,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 1, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        DomeGroup.TETRA_DJ.getDomeGroup(), 2
+    ));
+
+    // Bottom
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(southWallX, southWallY - 15, -129),
+        TRIANGLE_SIDE_LENGTH, 0,
+        X_UNIT_VECTOR, Z_UNIT_VECTOR,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 1, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        DomeGroup.TETRA_DJ.getDomeGroup(), 3
+    ));
+
+    /**
+     * Random one on the ceiling near crawl space
+     *
+     * TODO: VERY WRONG POSITION
+     */
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(southWallX + (12 * 10) /* call it 10ft */, southWallY - 15, -129),
+        TRIANGLE_SIDE_LENGTH, 0,
+        X_UNIT_VECTOR, Z_UNIT_VECTOR,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 2, 0 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        DomeGroup.TETRA_DJ.getDomeGroup(), 3
+    ));
+
+    /**
+     * Strand under crawl space
+     */
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(23, 6 * 12, -18),
+        TRIANGLE_SIDE_LENGTH, DEG_30,
+        X_UNIT_VECTOR, Z_UNIT_VECTOR,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 3, 0 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        DomeGroup.TETRA_DJ.getDomeGroup(), 3
+    ));
+
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(33, 95, -60),
+        TRIANGLE_SIDE_LENGTH, -DEG_60,
+        Y_UNIT_VECTOR, loftMirrorRight,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 3, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
+    ));
+
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(5, 89, -80),
+        TRIANGLE_SIDE_LENGTH, -DEG_60,
+        Y_UNIT_VECTOR, loftMirrorRight,
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 3, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
+    ));
 
 
-            // ------------------
+    // ------------------
+    // Old Loft Triangles
+
+    /*
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+                    new LXVector(33, 81, 8),
+                TRIANGLE_SIDE_LENGTH, 0,
+                    Y_UNIT_VECTOR, loftWindowRight,
+                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+                    1, 2, 0 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
+            ));
+
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+                    new LXVector(22, 95, -19),
+                TRIANGLE_SIDE_LENGTH, -DEG_60,
+                    Y_UNIT_VECTOR, loftWallRight,
+                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V3,
+                    1, 2, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
+            ));
+
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+                    new LXVector(22, 95, -26),
+                TRIANGLE_SIDE_LENGTH, 0,
+                    Y_UNIT_VECTOR, loftWallRight,
+                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V3,
+                    1, 2, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
+            ));
+            */
+
+
+
+    // ------------------
             // West wall / windows
 
             /*
@@ -264,42 +376,9 @@ public class Meowloween {
         0, 6, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
         DomeGroup.WEST_WALL_CLUSTER.getDomeGroup(), 3
     ));
-            /*
 
-            // ------------------
-            // Loft
 
-            BlinkyTriangle.positionIn3DSpace(
-                    new LXVector(33, 81, 8),
-                TRIANGLE_SIDE_LENGTH, 0,
-                    Y_UNIT_VECTOR, loftWindowRight,
-                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
-                    1, 2, 0 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
-            ),
 
-            BlinkyTriangle.positionIn3DSpace(
-                    new LXVector(22, 95, -19),
-                TRIANGLE_SIDE_LENGTH, -DEG_60,
-                    Y_UNIT_VECTOR, loftWallRight,
-                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V3,
-                    1, 2, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
-            ),
-
-            BlinkyTriangle.positionIn3DSpace(
-                    new LXVector(22, 95, -26),
-                TRIANGLE_SIDE_LENGTH, 0,
-                    Y_UNIT_VECTOR, loftWallRight,
-                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V3,
-                    1, 2, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
-            ),
-
-            BlinkyTriangle.positionIn3DSpace(
-                    new LXVector(33, 95, -60),
-                TRIANGLE_SIDE_LENGTH, -DEG_60,
-                    Y_UNIT_VECTOR, loftMirrorRight,
-                    BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
-                    1, 2, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
-            )*/
 
     return BlinkyModel.makeModel(triangles);
   }
