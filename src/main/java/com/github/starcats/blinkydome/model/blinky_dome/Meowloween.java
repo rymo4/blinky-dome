@@ -63,6 +63,8 @@ public class Meowloween {
     LXVector negYAndZ = new LXVector(0, -1, 1);
     LXVector negYAndNegZ = new LXVector(0, -1, -1);
 
+    int crackToWindows = 194;
+
     ArrayList<BlinkyTriangle> triangles = new ArrayList<>();
 
     /**
@@ -156,8 +158,9 @@ public class Meowloween {
 
     // ceiling above chris door
     int ceilingHeight = southWallY + 15 + 36;
+    int ceilingAboveChrisDoorZ = southWallChunkZ + 174 - 36;
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-            new LXVector(southWallX+40, ceilingHeight, southWallChunkZ + 174 - 36),
+            new LXVector(southWallX+40, ceilingHeight, ceilingAboveChrisDoorZ),
             TRIANGLE_SIDE_LENGTH, DEG_120+DEG_30+DEG_120,
             loftMirrorRight, loftWallRight,
             BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -165,13 +168,11 @@ public class Meowloween {
             DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 8
     ));
 
-    /*
-    The one I was working on
 
 
     // tetra 1 (top)
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-            new LXVector(southWallX+80, southWallY + 15 , -129 + 174),
+            new LXVector(southWallX+80, southWallY + 15 , ceilingAboveChrisDoorZ),
             TRIANGLE_SIDE_LENGTH, DEG_120+DEG_30+DEG_120,
             X_UNIT_VECTOR, yAndNegativeZ,
             BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -181,8 +182,8 @@ public class Meowloween {
 
     // tetra 2 (top)
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-            new LXVector(southWallX+80, southWallY + 15 , -129 + 174),
-            TRIANGLE_SIDE_LENGTH, DEG_120-DEG_30+DEG_120,
+            new LXVector(southWallX+80, southWallY + 15 , ceilingAboveChrisDoorZ),
+            TRIANGLE_SIDE_LENGTH, DEG_120+DEG_30+DEG_120,
             X_UNIT_VECTOR, yAndz,
             BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
             0, 7, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
@@ -192,24 +193,13 @@ public class Meowloween {
 
     // tetra 1 (bottom)
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX+80, southWallY + 15 , -129 + 174),
-        TRIANGLE_SIDE_LENGTH, DEG_120+DEG_30+DEG_30-DEG_30,
-        Z_UNIT_VECTOR, negYAndZ,
+        new LXVector(southWallX+80, southWallY + 15 , ceilingAboveChrisDoorZ),
+        TRIANGLE_SIDE_LENGTH, - DEG_60,
+        new LXVector(0, 0, 1), negYAndNegZ,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
-        0, 7, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+        0, 7, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
         DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 8
     ));
-
-    // tetra 1 (bottom)
-    triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX+80, southWallY + 15 , -129 + 174),
-        TRIANGLE_SIDE_LENGTH, DEG_120+DEG_30+DEG_30,
-        Z_UNIT_VECTOR, negYAndZ,
-        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
-        0, 7, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
-        DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 8
-    ));
-    */
 
 
 
