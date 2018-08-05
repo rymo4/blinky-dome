@@ -540,7 +540,6 @@ public class Meowloween {
     /**
      * Strand under crawl space
      */
-    /*
     triangles.add(BlinkyTriangle.positionIn3DSpace(
         new LXVector(23, 6 * 12, -18),
         TRIANGLE_SIDE_LENGTH, DEG_30,
@@ -567,7 +566,6 @@ public class Meowloween {
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
         0, 3, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
     ));
-    */
 
     // Black light lounge
     triangles.add(BlinkyTriangle.positionIn3DSpace(
