@@ -508,6 +508,7 @@ public class Meowloween {
         DomeGroup.TETRA_DJ.getDomeGroup(), 3
     ));
 
+    // Left of crawlspace mirror
     triangles.add(BlinkyTriangle.positionIn3DSpace(
         new LXVector(33, 95, -60),
         TRIANGLE_SIDE_LENGTH, -DEG_60,
@@ -516,12 +517,22 @@ public class Meowloween {
         0, 3, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
     ));
 
+    // Right of crawlspace mirror
     triangles.add(BlinkyTriangle.positionIn3DSpace(
         new LXVector(5, 89, -80),
         TRIANGLE_SIDE_LENGTH, -DEG_60,
         Y_UNIT_VECTOR, loftMirrorRight,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
         0, 3, 2 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
+    ));
+
+    // Black light lounge
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+        new LXVector(5, 100, -100),
+        TRIANGLE_SIDE_LENGTH, -DEG_60,
+        Y_UNIT_VECTOR, new LXVector(1, 0, -1),
+        BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+        0, 3, 3 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE, 0, 0
     ));
 
 
