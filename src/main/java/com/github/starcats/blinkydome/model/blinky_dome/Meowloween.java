@@ -173,6 +173,15 @@ public class Meowloween {
             DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 8
     ));
 
+    triangles.add(BlinkyTriangle.positionIn3DSpace(
+            new LXVector(southWallX+40, ceilingHeight, ceilingAboveChrisDoorZ - 60),
+            TRIANGLE_SIDE_LENGTH, DEG_120+DEG_30+DEG_120,
+            loftMirrorRight, loftWallRight,
+            BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
+            0, 2, 1 * BlinkyTriangle.NUM_LEDS_PER_TRIANGLE,
+            DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 8
+    ));
+
     // tetra 1 (top)
     triangles.add(BlinkyTriangle.positionIn3DSpace(
             new LXVector(southWallX+80, ceilingHeight - 12 , tetraMidZ),
