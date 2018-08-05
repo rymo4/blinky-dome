@@ -64,6 +64,9 @@ public class Meowloween {
     LXVector negYAndNegZ = new LXVector(0, -1, -1);
 
     int crackToWindows = 194;
+    int bottomTriBottomY = 20;
+    int southWallY = 87;
+    int ceilingHeight = 105 + 20;
 
     ArrayList<BlinkyTriangle> triangles = new ArrayList<>();
 
@@ -74,13 +77,12 @@ public class Meowloween {
      * This is the big wall with the blacklight crap on it.
      */
     int southWallX = -117;
-    int southWallY = 87;
 
     // Hour glass shape
     // TOP hour glass
     int southWallChunkZ = -129 + 36;
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX, southWallY, southWallChunkZ),
+        new LXVector(southWallX, bottomTriBottomY + 16 + 31, southWallChunkZ),
         TRIANGLE_SIDE_LENGTH, DEG_120,
         negativeYUnitVector, southWallLeft,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -89,7 +91,7 @@ public class Meowloween {
     ));
     // bottom hour glass
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX, southWallY, southWallChunkZ),
+        new LXVector(southWallX, bottomTriBottomY + 16 + 31, southWallChunkZ),
         TRIANGLE_SIDE_LENGTH, DEG_180 + DEG_120,
         negativeYUnitVector, southWallLeft,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -99,7 +101,7 @@ public class Meowloween {
 
     // Touching bottom hour glass
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX, southWallY - 31, southWallChunkZ + 16),
+        new LXVector(southWallX, bottomTriBottomY + 16, southWallChunkZ + 16),
         TRIANGLE_SIDE_LENGTH, DEG_120,
         negativeYUnitVector, southWallLeft,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -108,7 +110,7 @@ public class Meowloween {
     ));
     // Butted up against the one touching the bottom hour glass
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX, southWallY - 31, southWallChunkZ + 16),
+        new LXVector(southWallX, bottomTriBottomY + 16, southWallChunkZ + 16),
         TRIANGLE_SIDE_LENGTH, DEG_180,
         negativeYUnitVector, southWallLeft,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -118,7 +120,7 @@ public class Meowloween {
 
     // Top of the three big triangles
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX, southWallY - 16, (int)(southWallChunkZ + (2.5 * TRIANGLE_SIDE_LENGTH))),
+        new LXVector(southWallX, bottomTriBottomY + 31, (int)(southWallChunkZ + (2.5 * TRIANGLE_SIDE_LENGTH))),
         TRIANGLE_SIDE_LENGTH, DEG_180 + DEG_120,
         negativeYUnitVector, southWallLeft,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -128,7 +130,7 @@ public class Meowloween {
 
     // Left bottom big triangle
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX, southWallY - 49, southWallChunkZ + 26),
+        new LXVector(southWallX, bottomTriBottomY, southWallChunkZ + 26),
         TRIANGLE_SIDE_LENGTH, DEG_180,
         negativeYUnitVector, southWallLeft,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -138,7 +140,7 @@ public class Meowloween {
 
     // Right bottom big triangle
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-            new LXVector(southWallX, southWallY - 49, southWallChunkZ + 64),
+            new LXVector(southWallX, bottomTriBottomY, southWallChunkZ + 64),
             TRIANGLE_SIDE_LENGTH, DEG_180+DEG_60+DEG_180,
             negativeYUnitVector, southWallLeft,
             BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -146,9 +148,10 @@ public class Meowloween {
             DomeGroup.SOUTH_WALL_LEFT_CLUSTER.getDomeGroup(), 6
     ));
 
+
     // same wall as chris' room door
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-            new LXVector(southWallX+6, southWallY + 31 + 7, southWallChunkZ + 136 - 40),
+            new LXVector(southWallX+6, ceilingHeight, southWallChunkZ + 136 - 40),
             TRIANGLE_SIDE_LENGTH, DEG_180+DEG_120,
             negativeYUnitVector, loftMirrorRight,
             BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -157,7 +160,6 @@ public class Meowloween {
     ));
 
     // ceiling above chris door
-    int ceilingHeight = southWallY + 15 + 36;
     int ceilingAboveChrisDoorZ = southWallChunkZ + 174 - 36;
     triangles.add(BlinkyTriangle.positionIn3DSpace(
             new LXVector(southWallX+40, ceilingHeight, ceilingAboveChrisDoorZ),
@@ -225,7 +227,7 @@ public class Meowloween {
     ));
     */
 
-    triangles.addAll(getHazardSignShape(new LXVector(southWallX, southWallY + 24, -19),
+    triangles.addAll(getHazardSignShape(new LXVector(southWallX, ceilingHeight - 16, -19),
         new LXVector(-1, 0, 0), DomeGroup.SOUTH_WALL_RIGHT_CLUSTER, 1, 5));
 
     /*triangles.add(BlinkyTriangle.positionIn3DSpace(
@@ -319,7 +321,7 @@ public class Meowloween {
      * TODO: VERY WRONG POSITION
      */
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(southWallX + (12 * 10), southWallY - 15, -129),
+        new LXVector(southWallX + (12 * 10), ceilingHeight, -129),
         TRIANGLE_SIDE_LENGTH, 0,
         X_UNIT_VECTOR, Z_UNIT_VECTOR,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -373,7 +375,7 @@ public class Meowloween {
      * Strand under crawl space
      */
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(23, 6 * 12, -18),
+        new LXVector(23, 78, -18),
         TRIANGLE_SIDE_LENGTH, DEG_30,
         X_UNIT_VECTOR, Z_UNIT_VECTOR,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -382,7 +384,7 @@ public class Meowloween {
     ));
 
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(33, 95, -60),
+        new LXVector(33, 96, -60),
         TRIANGLE_SIDE_LENGTH, -DEG_60,
         Y_UNIT_VECTOR, loftMirrorRight,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
@@ -390,7 +392,7 @@ public class Meowloween {
     ));
 
     triangles.add(BlinkyTriangle.positionIn3DSpace(
-        new LXVector(5, 89, -80),
+        new LXVector(5, 90, -80),
         TRIANGLE_SIDE_LENGTH, -DEG_60,
         Y_UNIT_VECTOR, loftMirrorRight,
         BlinkyTriangle.V.V1, BlinkyTriangle.V.V2,
