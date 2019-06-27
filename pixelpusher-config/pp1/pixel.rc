@@ -1,0 +1,13 @@
+group=1
+
+pixels=420
+stripsattached=3
+controller=0
+
+strip1=apa102
+strip2=apa102
+strip3=apa102
+
+start1=0000AA
+start2=0000AA
+start3=0000AA
